@@ -2,10 +2,11 @@
 .login_img {
     position: relative;
     width: 100vw;
-    height: 298px;
-    left: -10px;
-    top: -10px;
+    height: auto;
+}
 
+.devise_field{
+    text-align: center;
 }
 
 .devise_label {
@@ -14,12 +15,14 @@
     font-weight: 500;
     font-size: 11px;
     line-height: 16px;
+    position: relative;
+    left: -120px;
 
     color: #979797;
 
     &_forgot {
         position: relative; 
-        left: 200px;
+        left: 100px;
         top: -40px;
 
         color: #979797;
@@ -28,9 +31,9 @@
     }
 }
 .devise_input {
-    position: relative;
+    text-align: start;
 
-    width: 330px;
+    width: 90%;
     border: none;
     border-bottom: 1px solid #9E9E9E;
 
@@ -44,9 +47,11 @@
 .devise_submit {
     position: relative;
 
-    width: 330px;
+    width: 90%;
     height: 48px;
     top: 130px;
+
+    text-align: center;
 
     border:none;
     background: #FFE600;

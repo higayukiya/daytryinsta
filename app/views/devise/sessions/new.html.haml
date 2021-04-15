@@ -2,11 +2,11 @@
 
 .container
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
+    .devise_field
       = f.label :email, class:'devise_label'
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email", class:'devise_input'
-    .field
+    .devise_field
       = f.label :password, class:'devise_label'
       %br/
       = f.password_field :password, autocomplete: "current-password", class:'devise_input'
