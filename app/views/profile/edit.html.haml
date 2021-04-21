@@ -1,0 +1,12 @@
+.container
+  = form_with(model: @profile, url: profile_path, local: true ) do |f|
+    %div
+      =f.label :avatar, 'Avatar'
+    %div
+      =f.file_field :avatar
+    %div
+      = f.label :nickname, 'ACCOUNTNAME'
+    %div
+      = f.text_field :nickname, class: 'text'
+    %div
+    =f.submit '保存', class: 'btn-submit'

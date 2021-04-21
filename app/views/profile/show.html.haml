@@ -1,1 +1,5 @@
-show
+.container
+	.user_name
+		%h2  #{current_user.user_name}
+		= link_to 'EDIT', render = edit_profile_path(current_user.id)
+	= image_tag current_user.avatar_img, class: 'avatar'

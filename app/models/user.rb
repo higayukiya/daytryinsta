@@ -4,5 +4,23 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :profile, dependent: :destroy
+  
   validates :username, presence: true, length: { maximum: 50 }
+
+  def user_name
+    if profile&.nickname&.present?
+      profile.nickname
+    else
+      username
+    end
+  end
+
+  def avatar_img
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      'default-avatar.png'
+    end
+  end
 end
