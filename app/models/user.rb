@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
-  
+
   validates :username, presence: true, length: { maximum: 50 }
+  validates :username, uniqueness: true
 
   def user_name
     if profile&.nickname&.present?
