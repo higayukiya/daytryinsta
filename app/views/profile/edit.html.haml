@@ -1,11 +1,11 @@
 .container
-  = form_with(model: @profile, url: profile_path, local: true ) do |f|
+  = form_with(model: @profile, url: profile_path, method: :put, local: true ) do |f|
     %div
-      =f.label :avatar, 'Avatar'
+      =f.label :avatar, 'Avatarの変更'
     %div
       =f.file_field :avatar
     %div
-      = f.label :nickname, 'ACCOUNTNAME'
+      = f.label :nickname, 'ACCOUNTNAMEの変更'
     %div
       = f.text_field :nickname, class: 'text'
     %div
