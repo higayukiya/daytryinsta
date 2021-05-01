@@ -1,12 +1,12 @@
-.container
-  = form_with(model: @profile, url: profile_path, method: :put, local: true ) do |f|
-    %div
-      =f.label :avatar, 'Avatarの変更'
-    %div
-      =f.file_field :avatar
-    %div
-      = f.label :nickname, 'ACCOUNTNAMEの変更'
-    %div
-      = f.text_field :nickname, class: 'text'
-    %div
-    =f.submit '保存', class: 'btn-submit'
+-# .container
+-#   = form_with(model: @profile, url: profile_path, method: :put, local: true ) do |f|
+-#     %div
+-#       =f.label :avatar, 'Avatarの変更'
+-#     %div
+-#       =f.file_field :avatar
+-#     %div
+-#       = f.label :nickname, 'ACCOUNTNAMEの変更'
+-#     %div
+-#       = f.text_field :nickname, class: 'text'
+-#     %div
+-#     =f.submit '保存', class: 'btn-submit'

@@ -15,3 +15,27 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+// require("trix")
+// require("@rails/actiontext")
+
+import $ from 'jquery'
+import axios from 'axios'
+
+const token = document.getElementsByName("csrf-token")[0].getAttribute("content");
+axios.defaults.headers.common["X-CSRF-Token"] = token;
+
+window.addEventListener('load', () => {
+    const uploader = document.querySelector('.form-avatar');
+    $(uploader).on('change', (e) => {
+        const file = uploader.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            const image = reader.result;
+            document.querySelector('.avatar').setAttribute('src', image);
+        }
+        $('.form-btn').trigger('click');
+        }
+    );
+});

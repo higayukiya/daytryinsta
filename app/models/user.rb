@@ -9,13 +9,13 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { maximum: 50 }
   validates :username, uniqueness: true
 
-  def user_name
-    if profile&.nickname&.present?
-      profile.nickname
-    else
-      username
-    end
-  end
+  # def user_name
+  #   if profile&.nickname&.present?
+  #     profile.nickname
+  #   else
+  #     username
+  #   end
+  # end
 
   def prepare_profile
     profile || build_profile
