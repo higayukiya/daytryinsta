@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
+  has_many :timelines, dependent: :destroy
+
   validates :username, presence: true, length: { maximum: 50 }
   validates :username, uniqueness: true
 

@@ -1,0 +1,15 @@
+.container
+	.new_action_head
+		-# = link_to timeline_path(@timeline), class: 'time_line_cancel'
+		%h2.timeline_status Status
+	= image_tag @user.avatar_img, class:'timeline_new_avatar'
+	%h3.timeline_new_name  #{@user.username}
+	= form_with(model:@timelines, url: timelines_path, method: 'post', local: true) do |f|
+		%div
+			= f.text_field :title, class: 'time_line_text_label', placeholder: 'What`s on your mind?'
+		%dvi 
+			=f.label :album, '+ Album', class: 'time_line_album_field'
+			%div
+				= f.file_field :album, multiple: true, class: 'time_line_album_field2'
+		%div
+			= f.submit "Post", class: 'time_line_submit'

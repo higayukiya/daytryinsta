@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   root to: "articles#show"
 
   resources :profile, only: [:edit, :update, :show, :destory]
-  resources :timeline, only: [:new, :create, :show, :destory]
-  
+  resources :timelines, only: [:new, :create, :edit, :show, :destory]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

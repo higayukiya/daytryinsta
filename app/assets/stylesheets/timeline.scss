@@ -1,3 +1,104 @@
 // Place all the styles related to the timeline controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+/* Rectangle */
+
+.new_action_head{
+    display: flex;
+}
+
+.time_line_cancel{
+    position: relative; top: 1rem;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    flex: 1;
+}
+.timeline_status{
+    position: relative; top: 1rem;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    flex: 2;
+
+    position: relative; right: 15%;
+}
+
+.time_line_album_field{
+    border: 1px solid #E0E0E0;
+box-sizing: border-box;
+}
+
+.timeline_new_avatar{
+    width: 40px;
+    height: 40px;
+    position: relative; right: 11rem; top: 2rem;
+    margin-top: 1em;
+
+    border: 1px solid #000000;
+    border-radius: 50%
+}
+
+.timeline_new_name{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative; right: 5rem; bottom: 1rem;
+
+    color: #333333;
+
+}
+
+.time_line_text_label{
+    width: 25rem;
+    height: 2rem;
+    left: 0.5rem;
+    top: 6.5rem;
+
+    border: none;
+    border-bottom: 1px solid #9E9E9E;
+
+    margin-top: 3rem;
+}
+
+.time_line_album_field{
+    width: 73px;
+    height: 24px;
+
+    padding: 0.3rem;
+
+    position: relative; right: 10rem; top: 1.5rem;
+
+    border: 1px solid #E0E0E0;
+    box-sizing: border-box;
+}
+.time_line_album_field2{
+    display: none;
+}
+
+.time_line_submit{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    align-items: right;
+    text-align: right;
+
+    background-color:#ffffff;
+    border: none;
+
+    position: relative; left: 12rem; top: -13.8rem;
+
+    /* Gray 4 */
+
+    color: #a1a1a1;
+
+}
