@@ -2,7 +2,7 @@ class TimelinesController < ApplicationController
     before_action :authenticate_user!
 
     def show
-        @timelines = Timelines.find(params[:id])
+        @timelines = Timeline.all
     end
 
     def new
@@ -14,7 +14,7 @@ class TimelinesController < ApplicationController
         @user = current_user
         @timelines = @user.timelines.build(timelines_params)
         if @timelines.save
-            redirect_to timelines_path(@user), notice: '保存できたよ'
+            redirect_to timeline_path(@timelines), notice: '保存できたよ'
         else
             flash.now[:error] = '保存に失敗しました'
             render :show

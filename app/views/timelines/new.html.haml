@@ -1,6 +1,6 @@
 .container
 	.new_action_head
-		-# = link_to timeline_path(@timeline), class: 'time_line_cancel'
+		= link_to 'Cancel', timelines_path, class: 'time_line_cancel'
 		%h2.timeline_status Status
 	= image_tag @user.avatar_img, class:'timeline_new_avatar'
 	%h3.timeline_new_name  #{@user.username}

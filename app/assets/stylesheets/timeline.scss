@@ -5,6 +5,7 @@
 
 .new_action_head{
     display: flex;
+    justify-content: space-evenly;
 }
 
 .time_line_cancel{
@@ -15,7 +16,9 @@
     font-size: 16px;
     line-height: 24px;
     text-align: left;
-    flex: 1;
+    position: relative; right: 20vw;
+    text-decoration: none;
+    color: black;
 }
 .timeline_status{
     position: relative; top: 1rem;
@@ -24,9 +27,8 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    flex: 2;
 
-    position: relative; right: 15%;
+    position: relative; right: 20vw;
 }
 
 .time_line_album_field{
@@ -95,7 +97,7 @@ box-sizing: border-box;
     background-color:#ffffff;
     border: none;
 
-    position: relative; left: 12rem; top: -13.8rem;
+    position: relative; left: 40vw; top: -13.8rem;
 
     /* Gray 4 */
 
