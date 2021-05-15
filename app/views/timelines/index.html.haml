@@ -1,1 +1,13 @@
-index
+.container
+    = link_to image_tag( 'photo-camera.png' ), new_timeline_path, class: 'timeline-camera'
+    - @timelines.each do |timelines|
+        .timeline_card
+            .timeline_user
+                = image_tag @user.avatar_img, class: 'index_avatar'
+                .index_username
+                    = @user.username
+            .img_container 
+                - timelines.album.each do |album|
+                    = image_tag album, class: 'img_container_album1'
+            .timelines_title
+                = timelines.title

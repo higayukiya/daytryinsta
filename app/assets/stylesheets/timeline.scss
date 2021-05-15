@@ -28,7 +28,7 @@
     font-size: 16px;
     line-height: 24px;
 
-    position: relative; right: 20vw;
+    position: relative; right: 17vw;
 }
 
 .time_line_album_field{
@@ -44,6 +44,33 @@ box-sizing: border-box;
 
     border: 1px solid #000000;
     border-radius: 50%
+}
+
+.index_avatar{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: 1rem 1rem;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.timeline_card{
+    padding: 1.5rem;
+}
+
+.index_username{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+}
+
+.timeline_user{
+    display: flex;
 }
 
 .timeline_new_name{
@@ -101,6 +128,36 @@ box-sizing: border-box;
 
     /* Gray 4 */
 
-    color: #a1a1a1;
+    color: #000000;
 
+}
+
+.timeline-camera{
+    width: 20px;
+    height: 20px;
+
+    position: relative; right: 40vw; top: 3vw;
+}
+
+.img_container{
+    display: flex;
+    padding: 1rem;
+    width: 80vw;
+    height: 100px;
+}
+
+.img_container_album1{
+display: flex;
+width: 25vw;
+height: auto;
+margin: 1rem;
+}
+
+.timelines_title{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: left;
 }
