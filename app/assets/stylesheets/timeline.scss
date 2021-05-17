@@ -143,14 +143,51 @@ box-sizing: border-box;
     display: flex;
     padding: 1rem;
     width: 80vw;
-    height: 100px;
+    height: 225px;
 }
 
-.img_container_album1{
-display: flex;
-width: 25vw;
-height: auto;
-margin: 1rem;
+#img_container_album0{
+    display: flex;
+    width: 170px;
+    height: 225px;
+    margin: 0.5rem;
+}
+
+#img_container_album1{
+    display: flex;
+    width: 138px;
+    height: 109px;
+    margin: 0.5rem;
+}
+
+#img_container_album2{
+    display: flex;
+    width: 138px;
+    height: 109px;
+    margin: 0.5rem;
+
+    position: relative; top: 120px; right: 150px;
+}
+
+#img_container_album3{
+    display: flex;
+    width: 170px;
+    height: 225px;
+    margin: 0.5rem;
+}
+
+#img_container_album4{
+    display: flex;
+    width: 138px;
+    height: 109px;
+    margin: 0.5rem;
+}
+
+#img_container_album5{
+    display: flex;
+    width: 138px;
+    height: 109px;
+    margin: 0.5rem;
 }
 
 .timelines_title{
@@ -168,4 +205,8 @@ margin: 1rem;
 
 .index_username{
     position: relative; bottom: 2vw;
+}
+
+.timeline_delete{
+    position: relative; left: 10rem;
 }

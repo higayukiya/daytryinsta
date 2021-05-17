@@ -20,11 +20,17 @@ class TimelinesController < ApplicationController
         @user = current_user
         @timelines = @user.timelines.build(timelines_params)
         if @timelines.save
-            redirect_to timeline_path(@timelines), notice: '保存できたよ'
+            redirect_to timelines_path(@timelines), notice: '保存できたよ'
         else
             flash.now[:error] = '保存に失敗しました'
             render :show
         end
+    end
+
+    def destroy
+        timelines = current_user.timelines.find(params[:id])
+        timelines.destroy!
+        redirect_to timelines_path(@timelines), notice: '削除に成功しました'
     end
 
     private
