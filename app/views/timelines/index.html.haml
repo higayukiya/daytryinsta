@@ -12,5 +12,9 @@
             .img_container 
                 - timelines.album.each_with_index do |album, index|
                     = image_tag album, id: "img_container_album#{index}"
+            .timeline_funcsion
+                = image_tag 'hart.png', class: 'hart_img'
+                = image_tag 'comment.png', class: 'comment_img'
+                = link_to image_tag( 'share.png' ), 'https://twitter.com/share?=#{/}', class: 'share_img'
             .timelines_title
                 = timelines.title
