@@ -1,5 +1,6 @@
 .container
-    = link_to image_tag( 'photo-camera.png' ), new_timeline_path, class: 'timeline-camera'
+    .timeline-camera
+        = link_to image_tag( 'photo-camera.png' ), new_timeline_path
     - @timelines.each do |timelines|
         .timeline_card
             .timeline_user
