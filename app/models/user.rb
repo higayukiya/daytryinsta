@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :timelines, dependent: :destroy
 
+  has_many :likes, dependent: :destroy
+
   validates :username, presence: true, length: { maximum: 50 }
   validates :username, uniqueness: true
 
