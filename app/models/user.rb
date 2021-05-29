@@ -21,6 +21,10 @@ class User < ApplicationRecord
   #   end
   # end
 
+  def has_liked?(timelines)
+    likes.exists?(timeline_id: timelines.id)
+  end
+
   def prepare_profile
     profile || build_profile
   end

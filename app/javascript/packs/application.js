@@ -38,4 +38,16 @@ window.addEventListener('load', () => {
         $('.form-btn').trigger('click');
         }
     );
+
+    const dataset = $("timeline_index1").data()
+    const timelineId = dataset.timelineId
+    axios.get(`/api/timelines/${timelineId}/like`)
+        .then((response) => {
+            const hasLiked = response.data.hasLiked
+            if (hasLiked) {
+                $('.active-heart').removeClass('hidden')
+            } else {
+                $('.inactive-heart').removeClass('hidden')
+            }
+        })
 });

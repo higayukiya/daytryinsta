@@ -4,6 +4,7 @@ class TimelinesController < ApplicationController
     def index
         @timelines = Timeline.all
         @user = current_user
+        # @timeline = current_user.timelines.find(params[:id])
         # @follwer
     end
     
