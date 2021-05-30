@@ -38,6 +38,7 @@ gem 'sidekiq'
 gem "haml-rails"
 gem 'jquery-rails'
 gem 'trix'
+gem 'rails-ujs'
 
 
 gem 'bootsnap', '>= 1.4.2', require: false

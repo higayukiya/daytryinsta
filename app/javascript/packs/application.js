@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -38,16 +39,19 @@ window.addEventListener('load', () => {
         $('.form-btn').trigger('click');
         }
     );
+});
 
-    const dataset = $("timeline_index1").data()
-    const timelineId = dataset.timelineId
+document.addEventListener('turbolinks:load', () => {
+
+    const dataset = $('.timeline_funcsion').attr('id')
+    const timelineId = dataset
     axios.get(`/api/timelines/${timelineId}/like`)
         .then((response) => {
-            const hasLiked = response.data.hasLiked
+            const hasLiked = response.hasLiked
             if (hasLiked) {
                 $('.active-heart').removeClass('hidden')
             } else {
                 $('.inactive-heart').removeClass('hidden')
             }
         })
-});
+})
