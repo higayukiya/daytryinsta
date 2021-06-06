@@ -9,7 +9,7 @@
                     = @user.username
                     = link_to 'Delete', timeline_path(timelines),data: { method: 'delete', confirm: '削除しますか？' }, class: 'timeline_delete'
             .index_create_at
-                #{timelines.created_at.year}, #{timelines.created_at.month}, #{timelines.created_at.day}
+                %p= time_ago_in_words(timelines.created_at) + ' ago '
             .img_container 
                 - timelines.album.each_with_index do |album, index|
                     = image_tag album, id: "img_container_album#{index}"
