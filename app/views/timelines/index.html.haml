@@ -13,13 +13,14 @@
             .img_container 
                 - timelines.album.each_with_index do |album, index|
                     = image_tag album, id: "img_container_album#{index}"
-            .timeline_funcsion{:id => "#{timelines.id}"}
-                - if user_signed_in?
-                    .article_heart.hidden.active-heart
+            .timeline_fun
+                %input{ type:"hidden", value: timelines.id, class: 'timeline_function'}
+                    - if user_signed_in?
+                    .article_heart.hidden{class: "active-heart"}
                         = image_tag 'heart_active.png'
-                    .article_heart.hidden.inactive-heart
+                    .article_heart.hidden{class: "inactive-heart"}
                         = image_tag 'heart.png'
-                = image_tag 'comment.png', class: 'comment_img'
-                = link_to image_tag( 'share.png' ), 'https://twitter.com/share?=#{/}', class: 'share_img'
+                    = image_tag 'comment.png', class: 'comment_img'
+                        = link_to image_tag( 'share.png' ), 'https://twitter.com/share?=#{/}', class: 'share_img'
             .timelines_title
                 = timelines.title

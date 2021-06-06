@@ -41,11 +41,11 @@ window.addEventListener('load', () => {
     );
 });
 
-document.addEventListener('turbolinks:load', () => {
-
-    const dataset = $('.timeline_funcsion').attr('id')
-    const timelineId = dataset
-    axios.get(`/api/timelines/${timelineId}/like`)
+document.addEventListener('DOMContentLoaded', () => {
+    $('.timeline_function').each(function () {
+        console.log($(this).val());
+        const timelineId = $(this).val();
+        axios.get(`/api/timelines/${timelineId}/like`)
         .then((response) => {
             const hasLiked = response.hasLiked
             if (hasLiked) {
@@ -54,4 +54,5 @@ document.addEventListener('turbolinks:load', () => {
                 $('.inactive-heart').removeClass('hidden')
             }
         })
+    })
 })

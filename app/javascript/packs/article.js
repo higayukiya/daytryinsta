@@ -31,8 +31,8 @@ const appendNewComment = (comment) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const dataset = $('#article-show').data()
-    const articleId = dataset.articleId
+    const dataset = $('#<%= timeline.id %>').data()
+    const timelinesId = dataset.timelinesId
 
     axios.get(`/api/articles/${articleId}/comments`)
         .then((response) => {
@@ -60,13 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    axios.get(`/api/articles/${articleId}/like`)
+    axios.get(`/api/timelines/${timelinesId}/like`)
         .then((response) => {
             const hasLiked = response.data.hasLiked
             handleHeartDisplay(hasLiked)
         })
     
-    listenInactiveHeartEvent(articleId)
-    listenActiveHeartEvent(articleId)
+    listenInactiveHeartEvent(timelinesId)
+    listenActiveHeartEvent(timelinesId)
     
 })
