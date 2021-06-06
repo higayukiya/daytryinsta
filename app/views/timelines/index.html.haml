@@ -17,9 +17,9 @@
                 %input{ type:"hidden", value: timelines.id, class: 'timeline_function'}
                     - if user_signed_in?
                     .article_heart.hidden{class: "active-heart"}
-                        = image_tag 'heart_active.png'
+                        = image_tag 'heart_active.png', class: 'heartimg'
                     .article_heart.hidden{class: "inactive-heart"}
-                        = image_tag 'heart.png'
+                        = image_tag 'heart.png', class: 'heartimg'
                     = image_tag 'comment.png', class: 'comment_img'
                         = link_to image_tag( 'share.png' ), 'https://twitter.com/share?=#{/}', class: 'share_img'
             .timelines_title
