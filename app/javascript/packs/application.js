@@ -26,6 +26,14 @@ import axios from 'axios'
 const token = document.getElementsByName("csrf-token")[0].getAttribute("content");
 axios.defaults.headers.common["X-CSRF-Token"] = token;
 
+const handleHeartDisplay = (hasLiked) => {
+    if (hasLiked) {
+        $('.active-heart').removeClass('hidden')
+    } else {
+        $('.inactive-heart').removeClass('hidden')
+    }
+}
+
 window.addEventListener('load', () => {
     const uploader = document.querySelector('.form-avatar');
     $(uploader).on('change', (e) => {
@@ -42,17 +50,47 @@ window.addEventListener('load', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    $('.timeline_function').each(function () {
-        console.log($(this).val());
-        const timelineId = $(this).val();
-        axios.get(`/api/timelines/${timelineId}/like`)
-        .then((response) => {
-            const hasLiked = response.hasLiked
-            if (hasLiked) {
-                $('.active-heart').removeClass('hidden')
-            } else {
-                $('.inactive-heart').removeClass('hidden')
-            }
-        })
+    const dataset = $('#timeline-show').data()
+    const timelineId = dataset.timelineId
+
+
+    //いいね機能
+
+    axios.get(`/api/timelines/${timelineId}/like`)
+    .then((response) => {
+        const hasLiked = response.data.hasLiked
+        handleHeartDisplay(hasLiked)
+    })
+
+    $('.inactive-heart').on('click', (e) => {
+        e.preventDefault();
+        const content = $(e.currentTarget).attr('id')
+            axios.post(`/api/timelines/${timelineId}/like`)
+                .then((response) => {
+                    if (response.data.status === 'ok') {
+                        $(`#${content}.active-heart`).removeClass('hidden')
+                        $(`#${content}.inactive-heart`).addClass('hidden')
+                    }
+                })
+                .catch((e) => {
+                    window.alert('error')
+                    console.log(e)
+                })
+    })
+
+    $('.active-heart').on('click', (e) => {
+        e.preventDefault();
+        const content = $(e.currentTarget).attr('id')
+            axios.delete(`/api/timelines/${timelineId}/like`)
+                .then((response) => {
+                    if (response.data.status === 'ok') {
+                        $(`#${content}.inactive-heart`).removeClass('hidden')
+                        $(`#${content}.active-heart`).addClass('hidden')
+                    }
+                })
+                .catch((e) => {
+                    window.alert('error')
+                    console.log(e)
+                })
     })
 })

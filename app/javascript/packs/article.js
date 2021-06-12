@@ -8,13 +8,13 @@ import axios from 'axios'
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-const handleHeartDisplay = (hasLiked) => {
-    if (hasLiked) {
-        $('.active-heart').removeClass('hidden')
-    } else {
-        $('.inactive-heart').removeClass('hidden')
-    }
-}
+// const handleHeartDisplay = (hasLiked) => {
+//     if (hasLiked) {
+//         $('.active-heart').removeClass('hidden')
+//     } else {
+//         $('.inactive-heart').removeClass('hidden')
+//     }
+// }
 
 const handleCommentForm = () => {
     $('.show-comment-form').on('click', () => {
