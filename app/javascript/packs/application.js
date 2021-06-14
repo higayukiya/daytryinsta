@@ -26,13 +26,13 @@ import axios from 'axios'
 const token = document.getElementsByName("csrf-token")[0].getAttribute("content");
 axios.defaults.headers.common["X-CSRF-Token"] = token;
 
-const handleHeartDisplay = (hasLiked) => {
-    if (hasLiked) {
-        $('.active-heart').removeClass('hidden')
-    } else {
-        $('.inactive-heart').removeClass('hidden')
-    }
-}
+// const handleHeartDisplay = (hasLiked) => {
+//     if (hasLiked) {
+//         $(`#${content}.active-heart`).removeClass('hidden')
+//     } else {
+//         $(`#${content}.inactive-heart`).removeClass('hidden')
+//     }
+// }
 
 window.addEventListener('load', () => {
     const uploader = document.querySelector('.form-avatar');
@@ -51,21 +51,20 @@ window.addEventListener('load', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const dataset = $('#timeline-show').data()
-    const timelineId = dataset.timelineId
 
 
     //いいね機能
 
-    axios.get(`/api/timelines/${timelineId}/like`)
-    .then((response) => {
-        const hasLiked = response.data.hasLiked
-        handleHeartDisplay(hasLiked)
-    })
+    // axios.get(`/api/timelines/${timelineId}/like`)
+    // .then((response) => {
+    //     const hasLiked = response.data.hasLiked
+    //     handleHeartDisplay(hasLiked)
+    // })
 
     $('.inactive-heart').on('click', (e) => {
         e.preventDefault();
         const content = $(e.currentTarget).attr('id')
-            axios.post(`/api/timelines/${timelineId}/like`)
+            axios.post(`/api/timelines/${content}/like`)
                 .then((response) => {
                     if (response.data.status === 'ok') {
                         $(`#${content}.active-heart`).removeClass('hidden')
@@ -81,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $('.active-heart').on('click', (e) => {
         e.preventDefault();
         const content = $(e.currentTarget).attr('id')
-            axios.delete(`/api/timelines/${timelineId}/like`)
+            axios.delete(`/api/timelines/${content}/like`)
                 .then((response) => {
                     if (response.data.status === 'ok') {
                         $(`#${content}.inactive-heart`).removeClass('hidden')

@@ -1,26 +1,33 @@
 .container
     .timeline-camera
         = link_to image_tag( 'photo-camera.png' ), new_timeline_path
-    - @timelines.each do |timelines|
-        .timeline_card#timeline-show{data: {timeline_id: timelines.id}}
-            .timeline_user
-                = image_tag @user.avatar_img, class: 'index_avatar'
-                .index_username
-                    = @user.username
-                    = link_to 'Delete', timeline_path(timelines),data: { method: 'delete', confirm: '削除しますか？' }, class: 'timeline_delete'
-            .index_create_at
-                %p= time_ago_in_words(timelines.created_at) + ' ago '
-            .img_container 
-                - timelines.album.each_with_index do |album, index|
-                    = image_tag album, id: "img_container_album#{index}"
-            .timeline_fun
-                -# %input{ type:"hidden", value: timelines.id, class: 'timeline_function'}
-                - if user_signed_in?
-                .article_heart.hidden.active-heart{id: timelines.id}
-                    = image_tag 'heart_active.png', class: 'heartimg'
-                .article_heart.hidden.inactive-heart{id: timelines.id}
-                    = image_tag 'heart.png', class: 'heartimg'
-                = image_tag 'comment.png', class: 'comment_img'
+    .cards
+        - @timelines.each do |timelines|
+            .timeline_card#timeline-show{data: {timeline_id: timelines.id}}
+                .timeline_user
+                    = image_tag @user.avatar_img, class: 'index_avatar'
+                    .index_username
+                        = @user.username
+                        = link_to 'Delete', timeline_path(timelines),data: { method: 'delete', confirm: '削除しますか？' }, class: 'timeline_delete'
+                .index_create_at
+                    %p= time_ago_in_words(timelines.created_at) + ' ago '
+                .img_container 
+                    - timelines.album.each_with_index do |album, index|
+                        = image_tag album, id: "img_container_album#{index}"
+                .timeline_fun
+                    -# %input{ type:"hidden", value: timelines.id, class: 'timeline_function'}
+                    - if current_user.has_liked?(timelines)
+                        .article_heart.active-heart{id: timelines.id}
+                            = image_tag 'heart_active.png', class: 'heartimg'
+                        .article_heart.hidden.inactive-heart{id: timelines.id}
+                            = image_tag 'heart.png', class: 'heartimg'
+                    -else
+                        .article_heart.inactive-heart{id: timelines.id}
+                            = image_tag 'heart.png', class: 'heartimg'
+                        .article_heart.hidden.active-heart{id: timelines.id}
+                            = image_tag 'heart_active.png', class: 'heartimg'
+                    %div.likes_count= timelines.likes.count
+                    = image_tag 'comment.png', class: 'comment_img'
                     = link_to image_tag( 'share.png' ), 'https://twitter.com/share?=#{/}', class: 'share_img'
-            .timelines_title
-                = timelines.title
+                .timelines_title
+                    = timelines.title

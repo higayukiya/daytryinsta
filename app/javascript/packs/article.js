@@ -59,12 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
         }
     })
-
-    axios.get(`/api/timelines/${timelinesId}/like`)
-        .then((response) => {
-            const hasLiked = response.data.hasLiked
-            handleHeartDisplay(hasLiked)
-        })
     
     listenInactiveHeartEvent(timelinesId)
     listenActiveHeartEvent(timelinesId)
