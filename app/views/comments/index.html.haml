@@ -1,0 +1,5 @@
+.container
+    %h2 Comments 
+    .comment_card
+        - @comments.each do |comments|
+            = comments.user_id

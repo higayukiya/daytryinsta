@@ -1,20 +1,9 @@
 import $ from 'jquery'
 import axios from 'axios'
-// import { csrfToken } from 'rails-ujs'
-// import {
-//     listenInactiveHeartEvent,
-//     listenActiveHeartEvent
-// } from 'modules/handle_heart'
+
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
-// const handleHeartDisplay = (hasLiked) => {
-//     if (hasLiked) {
-//         $('.active-heart').removeClass('hidden')
-//     } else {
-//         $('.inactive-heart').removeClass('hidden')
-//     }
-// }
 
 const handleCommentForm = () => {
     $('.show-comment-form').on('click', () => {
@@ -26,7 +15,7 @@ const handleCommentForm = () => {
 
 const appendNewComment = (comment) => {
     $('.comments-container').append(
-        `<div class="article_comment"><P>${escape(comment.contens)}</P></div>`
+        `<div class="article_comment"><P>${escape(comment.content)}</P></div>`
     )
 }
 
