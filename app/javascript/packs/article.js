@@ -15,7 +15,7 @@ const handleCommentForm = () => {
 
 const appendNewComment = (comment) => {
     $('.comments-container').append(
-        `<div class="article_comment"><P>${escape(comment.content)}</P></div>`
+        `<div class="timelines_comment"><P>${escape(comment.content)}</P></div>`
     )
 }
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dataset = $('#<%= timeline.id %>').data()
     const timelinesId = dataset.timelinesId
 
-    axios.get(`/api/articles/${articleId}/comments`)
+    axios.get(`/timelines/${timelinesId}/comments`)
         .then((response) => {
             const comments = response.data
             comments.forEach((comment) => {
@@ -33,18 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
     
         handleCommentForm()
 
-    $('.add-comment-button').on('click', () => {
-        const contens = $('#comment_contens').val()
-        if (!contens) {
+    $('.comment_submit').on('click', () => {
+        const content = $('#comment_content').val()
+        debugger
+        if (!content) {
             window.alert('コメントを入力してください')
         } else {
-            axios.post(`/api/articles/${articleId}/comments`, {
-                comment: { contens: contens }
+            axios.post(`/articles/${timelinesId}/comments`, {
+                comment: { content: content }
             })
                 .then((res) => {
                     const comment = res.data
                     appendNewComment(comment)
-                    $('#comment_contens').val('')
+                    $('#comment_content').val('')
                 })
         }
     })

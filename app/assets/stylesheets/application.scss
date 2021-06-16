@@ -1,6 +1,7 @@
 @import 'devise';
 @import 'profile';
 @import 'timeline';
+@import 'comments';
 
 
 .container {
@@ -14,8 +15,4 @@ a {
 
 .hidden{
     display: none;
-  }
-
-// .article_heart{
-
-// }
+}

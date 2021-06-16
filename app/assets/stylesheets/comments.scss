@@ -1,3 +1,29 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.sm{
+    position: fixed; left: 16px; top: 710px;
+    height: 42px;
+    width: 343px;
+    border-radius: 0px;
+    text-align: center;
+
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.comment_text_area{
+    
+}
+
+.comment_img_btn{
+    position: fixed; left: 20px; top:725px;
+    background-color: white;
+}
+
+.comment_submit{
+    background-color:rgba(0,0,0,0);
+    border: none;
+}

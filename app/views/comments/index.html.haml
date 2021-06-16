@@ -1,5 +1,14 @@
 .container
-    %h2 Comments 
+    .yajirusi
+        = link_to (image_tag 'yajirusi_left.png'), 'javascript:history.back()'
+    .user_name
+        %h2 Comments
     .comment_card
-        - @comments.each do |comments|
-            = comments.user_id
+        .timeline_comment
+    
+    .comment_text_area
+        .text_area_chil
+            = text_area_tag :commet_content, '', class: 'sm'
+        .comment_img_btn
+            = button_tag type: :submit, class:'comment_submit' do
+                = image_tag 'comment.png'
