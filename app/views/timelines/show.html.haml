@@ -1,7 +1,12 @@
-.contaner
-    show
-    = link_to new_timeline_path do
-        ='NEW'
-    -# - @timelines.each do |timelines|
-    -#     = timelines.title
-    -#     = image_tag  timelines.album
+.container
+    .yajirusi
+        = link_to (image_tag 'yajirusi_left.png'), 'javascript:history.back()'
+    .user_name
+        %h2 Comments
+    .comments-container{id: "#{@timelines.id}"}
+    
+    .comment_text_area
+        .text_area_chil{ data: { user_id: current_user.id , user_name: current_user.username, user_avatar: current_user.avatar_img}}
+            = text_area_tag :comment_content, '', class: 'sm'
+        .comment_img_btn
+            -# = image_tag 'comment.png'

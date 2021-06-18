@@ -5,52 +5,48 @@ import axios from 'axios'
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
 
-const handleCommentForm = () => {
-    $('.show-comment-form').on('click', () => {
-        $('.show-comment-form').addClass('hidden')
-        $('.comment-text-area').removeClass('hidden')
-    })
-
-}
-
 const appendNewComment = (comment) => {
     $('.comments-container').append(
-        `<div class="timelines_comment"><P>${escape(comment.content)}</P></div>`
+        `<div class="timelines_comment"><P>${comment.content}</P></div>`
     )
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const dataset = $('#<%= timeline.id %>').data()
-    const timelinesId = dataset.timelinesId
+    $('.comment_img_btn').on("click", function () {
+        var dataSet = $('.text_area_chil').data()
+        var userId = dataSet.userId
+        // var userName = dataSet.userName
+        // var userAvatar = dataSet.userAvatar
+        // var articleId = $(this).attr("id")
 
-    axios.get(`/timelines/${timelinesId}/comments`)
-        .then((response) => {
-            const comments = response.data
-            comments.forEach((comment) => {
-                appendNewComment(comment)
-            })
-        })
-    
-        handleCommentForm()
+        const dataset = $('.comments-container').attr('id')
+        const timelinesId = dataset.timelinesId
 
-    $('.comment_submit').on('click', () => {
-        const content = $('#comment_content').val()
-        debugger
-        if (!content) {
-            window.alert('コメントを入力してください')
-        } else {
-            axios.post(`/articles/${timelinesId}/comments`, {
-                comment: { content: content }
-            })
-                .then((res) => {
-                    const comment = res.data
-                    appendNewComment(comment)
-                    $('#comment_content').val('')
+
+            const content = $('#comment_img_btn').val()
+            if (!content) {
+                window.alert('コメントを入力してください')
+            } else {
+                axios.post(`/api/timelines/${timelinesId}/comments`, {
+                    comment: {
+                        content: content,
+                        user_id: userId,
+                        timeline_id: timelineId
+                    }
                 })
-        }
+                    .then((res) => {
+                        const comment = res.data
+                        appendNewComment(comment)
+                        $('#comment_content').val('')
+                    })
+            }
+
+        axios.get(`/api/timelines/${timelinesId}/comments`)
+            .then((response) => {
+                const comments = response.data
+                comments.forEach((comment) => {
+                    appendNewComment(comment)
+                })
+            })
     })
-    
-    listenInactiveHeartEvent(timelinesId)
-    listenActiveHeartEvent(timelinesId)
-    
 })

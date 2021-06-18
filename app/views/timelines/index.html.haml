@@ -27,7 +27,7 @@
                         .article_heart.hidden.active-heart{id: timelines.id}
                             = image_tag 'heart_active.png', class: 'heartimg'
                     %div.likes_count= timelines.likes.count
-                    = link_to timeline_comments_path(timelines.id), class: 'comment_img' do
+                    = link_to timeline_path(timelines.id), class: 'comment_img' do
                         = image_tag 'comment.png'
                     = link_to image_tag( 'share.png' ), 'https://twitter.com/share?=#{/}', class: 'share_img'
                 .timelines_title
