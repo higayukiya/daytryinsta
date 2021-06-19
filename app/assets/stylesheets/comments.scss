@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .sm{
-    position: fixed; left: 16px; top: 710px;
+    position: fixed; left: 20px; top: 710px;
     height: 42px;
-    width: 343px;
+    width: 90vw;
     border-radius: 0px;
     text-align: center;
 
@@ -14,15 +14,11 @@
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-.comment_text_area{
-    
-}
-
 .comment_img_btn{
-    position: fixed; left: 20px; top:650px;
-    width: 20px;
-    height: 20px;
-    background-color: gray;
+    position: fixed; left: 20px; top:60.5rem;
+    width: 25px;
+    height: 25px;
+    background-color: white;
 }
 
 .comment_submit{

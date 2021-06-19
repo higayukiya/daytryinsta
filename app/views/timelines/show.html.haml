@@ -6,7 +6,9 @@
     .comments-container{id: "#{@timelines.id}"}
     
     .comment_text_area
-        .text_area_chil{ data: { user_id: current_user.id , user_name: current_user.username, user_avatar: current_user.avatar_img}}
+        .text_area_chil{ data: {timeline_id: @timelines.id, user_id: current_user.id , user_name: current_user.username, user_avatar: current_user.avatar_img}}
             = text_area_tag :comment_content, '', class: 'sm'
         .comment_img_btn
-            -# = image_tag 'comment.png'
+            = image_tag 'comment.png'
+
+= javascript_pack_tag 'comment'

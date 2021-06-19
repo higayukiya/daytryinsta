@@ -1,9 +1,8 @@
 import $ from 'jquery'
 import axios from 'axios'
 
-
-axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
-
+const token = document.getElementsByName("csrf-token")[0].getAttribute("content");
+axios.defaults.headers.common["X-CSRF-Token"] = token;
 
 const appendNewComment = (comment) => {
     $('.comments-container').append(
@@ -12,26 +11,32 @@ const appendNewComment = (comment) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const timelinesId = $('.comments-container').attr('id')
+    axios.get(`/api/timelines/${timelinesId}/comments`)
+    .then((response) => {
+        const comments = response.data
+        comments.forEach((comment) => {
+            appendNewComment(comment)
+        })
+    })
+
     $('.comment_img_btn').on("click", function () {
         var dataSet = $('.text_area_chil').data()
         var userId = dataSet.userId
         // var userName = dataSet.userName
         // var userAvatar = dataSet.userAvatar
         // var articleId = $(this).attr("id")
+        // const dataset = $('.comments-container').attr('id')
+        const timelinesId = $('.comments-container').attr('id')
 
-        const dataset = $('.comments-container').attr('id')
-        const timelinesId = dataset.timelinesId
 
-
-            const content = $('#comment_img_btn').val()
+            const content = $('#comment_content').val()
             if (!content) {
                 window.alert('コメントを入力してください')
             } else {
                 axios.post(`/api/timelines/${timelinesId}/comments`, {
                     comment: {
-                        content: content,
-                        user_id: userId,
-                        timeline_id: timelineId
+                        content: content
                     }
                 })
                     .then((res) => {
@@ -39,14 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         appendNewComment(comment)
                         $('#comment_content').val('')
                     })
+            
             }
-
-        axios.get(`/api/timelines/${timelinesId}/comments`)
-            .then((response) => {
-                const comments = response.data
-                comments.forEach((comment) => {
-                    appendNewComment(comment)
-                })
-            })
     })
 })
