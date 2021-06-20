@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     $('.comment_img_btn').on("click", function () {
         var dataSet = $('.text_area_chil').data()
-        var userId = dataSet.userId
+        // var userId = dataSet.userId
         // var userName = dataSet.userName
         // var userAvatar = dataSet.userAvatar
         // var articleId = $(this).attr("id")
