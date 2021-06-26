@@ -15,7 +15,7 @@
 }
 
 .comment_img_btn{
-    position: fixed; left: 20px; top:60.5rem;
+    position: fixed; left: 35px; top:60.5rem;
     width: 25px;
     height: 25px;
     background-color: white;
@@ -24,4 +24,48 @@
 .comment_submit{
     background-color:rgba(0,0,0,0);
     border: none;
+}
+
+.comments_area{
+    margin: 6rem;
+
+    width: auto;
+    height: auto;
+
+    text-align: center;
+
+    position: relative; left: -3rem;
+}
+
+.comments_username{
+    position: relative; left: 2rem;
+}
+
+.timelines_comment{
+    position: relative; left: -2.5rem; top: 2rem;
+    margin: 0.5rem;
+    p{
+        width: 20rem;
+        height: auto;
+        overflow-wrap: break-word;
+        margin: 0rem, 0rem ,3rem, 0rem;
+    }
+
+}
+
+.comments_avatar{
+
+    width: 40px;
+    height: 40px;
+    margin: 1rem 1rem;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    position: relative; left: -1rem; top: 3rem;
+
+    img{
+        width: auto;
+        height: auto;
+        border-radius: 50%;
+    }
 }

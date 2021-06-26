@@ -10,6 +10,8 @@ class TimelinesController < ApplicationController
     
     def show
         @timelines = Timeline.find(params[:id])
+        @comments = Comment.all
+        @profile = Profile.all
     end
 
     def new

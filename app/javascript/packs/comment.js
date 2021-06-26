@@ -5,8 +5,17 @@ const token = document.getElementsByName("csrf-token")[0].getAttribute("content"
 axios.defaults.headers.common["X-CSRF-Token"] = token;
 
 const appendNewComment = (comment) => {
+    // var dataSet = $('.text_area_chil').data()
+    // var userId = dataSet.userId
+    // var userName = dataSet.userName
+    // var userAvatar = dataSet.userAvatar
+
     $('.comments-container').append(
-        `<div class="timelines_comment"><P>${comment.content}</P></div>`
+        `<div class="comments_area">
+        <div class="comments_avatar"><img src='${comment.user.profile.avatar_comment_img}'</div>
+        <div class="comments_username"><p>${comment.user.username}</p></div>
+        <div class="timelines_comment"><P>${comment.content}</P></div>
+        </>`
     )
 }
 
@@ -21,12 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     $('.comment_img_btn').on("click", function () {
-        var dataSet = $('.text_area_chil').data()
-        // var userId = dataSet.userId
-        // var userName = dataSet.userName
-        // var userAvatar = dataSet.userAvatar
-        // var articleId = $(this).attr("id")
-        // const dataset = $('.comments-container').attr('id')
         const timelinesId = $('.comments-container').attr('id')
 
 
@@ -46,5 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
             
             }
+        
     })
 })

@@ -4,7 +4,7 @@ class Api::CommentsController < Api::ApplicationController
         @timelines = Timeline.find(params[:timelines_id])
         comment = @timelines.comments
 
-        render json:comment
+        render json: comment, include: { user: [ :profile] }
     end
 
     def create
@@ -12,7 +12,7 @@ class Api::CommentsController < Api::ApplicationController
         @comment = @timeline.comments.build(comment_params)
         @comment.save!
 
-        render json: @comment
+        render json: @comment, include: { user: [ :profile] }
     end
 
 
