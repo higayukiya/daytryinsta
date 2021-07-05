@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'higa.yukiya@gmail.com'
+  default from: 'higa.yukiya@sample.com'
   def comment_content(comment)
     @user = comment.user
     @article = comment.article
