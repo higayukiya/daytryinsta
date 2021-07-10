@@ -16,14 +16,16 @@
 				= f.submit '送信', class: 'form-btn'
 	.inline
 		.profile-number
-			44
+			#{@user.timelines.count}
 			.profile-content
 				Post
 		.profile-number 
-			110
+			= link_to followers_user_path(@user.id)do
+				#{@user.followers.count}
 			.profile-content
 				Follower
 		.profile-number
-			44
+			= link_to following_user_path(@user.id)do
+				#{@user.following.count}
 			.profile-content
 				Following
