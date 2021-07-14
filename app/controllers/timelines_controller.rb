@@ -3,7 +3,7 @@ class TimelinesController < ApplicationController
 
     def index
         @timelines = Timeline.all
-        @user = current_user
+        # @user = @timelines.user_id
         # @timeline = current_user.timelines.find(params[:id])
         # @follwer
     end

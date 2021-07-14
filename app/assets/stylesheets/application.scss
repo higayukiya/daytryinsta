@@ -5,9 +5,10 @@
 
 
 .container {
-    height: auto;
+    height: auto+100vh;
     padding: 5px;
     text-align: center;
+    background-color: white;
 }
 a {
     text-decoration: none;

@@ -2,7 +2,7 @@
 	.yajirusi
 		= link_to (image_tag 'yajirusi_left.png'), 'javascript:history.back()'
 	.user_name
-		%h2  #{current_user.username}
+		%h2  #{@user.username}
 		-# = image_tag current_user.avatar_img, class: 'avatar' ##, render = edit_profile_path(current_user.id)
 	#avatar_js
 	= form_with(model:@profile, url: profile_path, method: 'put', local: true, id: 'avatar_form') do |f|
@@ -29,3 +29,9 @@
 				#{@user.following.count}
 			.profile-content
 				Following
+	.my_post
+		.cards
+			- @timelines.each do |timelines|
+				.img_container 
+					- timelines.album.each_with_index do |album, index|
+						= image_tag album, id: "img_container_album#{index}"

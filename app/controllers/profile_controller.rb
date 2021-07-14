@@ -2,8 +2,9 @@ class ProfileController < ApplicationController
     before_action :authenticate_user!
 
     def show
-        @profile = current_user.profile
         @user  = User.find(params[:id])
+        @profile = Profile.find(params[:id])
+        @timelines = @user.timelines
     end
 
     def edit

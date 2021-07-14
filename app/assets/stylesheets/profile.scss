@@ -38,7 +38,7 @@
 
 .yajirusi{
 
-    position: relative; top: 4em; right: 13em;
+    position: relative; top: 6.5vh; right: 30vw;
 
     a {
         display: block;
@@ -72,7 +72,12 @@
     /* identical to box height */
     align-items: center;
 
-    color: #333A42;
+    color: #535353;
+
+    a{
+        color: #535353;
+    }
+
 
     .profile-content{
         padding: none;
@@ -89,4 +94,8 @@
 .none {
     display: none;
   }
-  
+
+
+.my_post{
+    position: relative; top: 20vh; left: 2vw;
+}
