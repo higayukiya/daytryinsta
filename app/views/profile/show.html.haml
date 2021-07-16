@@ -4,16 +4,25 @@
 	.user_name
 		%h2  #{@user.username}
 		-# = image_tag current_user.avatar_img, class: 'avatar' ##, render = edit_profile_path(current_user.id)
+	.profile_top_follow
+		- unless @user === current_user
+			- if current_user.following?(@user)
+				.follow_button.unfollow
+					Unfollow
+			- else
+				.unfollow_button.follow
+					Follow
 	#avatar_js
 	= form_with(model:@profile, url: profile_path, method: 'put', local: true, id: 'avatar_form') do |f|
 		= f.label :avatar do
 			- if @profile.avatar.attached?
 				.profile-image
 					= image_tag @profile.avatar, class: 'avatar'
-			.none
-				= f.file_field :avatar, class: 'form-avatar'
-				%br
-				= f.submit '送信', class: 'form-btn'
+			- if current_user === @user
+				.none
+					= f.file_field :avatar, class: 'form-avatar'
+					%br
+					= f.submit '送信', class: 'form-btn'
 	.inline
 		.profile-number
 			#{@user.timelines.count}
@@ -32,6 +41,6 @@
 	.my_post
 		.cards
 			- @timelines.each do |timelines|
-				.img_container 
+				.img_container
 					- timelines.album.each_with_index do |album, index|
 						= image_tag album, id: "img_container_album#{index}"

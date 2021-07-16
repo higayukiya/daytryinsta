@@ -93,9 +93,31 @@
 
 .none {
     display: none;
-  }
+}
 
 
 .my_post{
-    position: relative; top: 20vh; left: 2vw;
+    position: relative; top: 20vh;
+    text-align: center;
+    width: 100vw;
+}
+
+.cards{
+    display: inline-block;
+}
+
+.img_container{
+    display: inline-block;
+    width: 100vw;
+    height: auto;
+}
+
+.unfollow{
+    font-size: 16px;
+}
+
+.follow{
+    font-size: 16px;
+    position: relative; top: 4vh; left: 75vw;
+    width: fit-content;
 }
