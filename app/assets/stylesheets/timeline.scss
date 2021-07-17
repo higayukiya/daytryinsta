@@ -173,7 +173,7 @@ box-sizing: border-box;
     height: 20vh;
     margin: 1vw;
 
-    position: relative; top: 15vh; right: 27vw;
+    position: relative; top: 13vh; right: 26vw;
 }
 
 #img_container_album3{
@@ -252,5 +252,6 @@ box-sizing: border-box;
 }
 
 .log_out{
-    position: relative; top: 0.3vh; right: -40vw;
+    position: relative; top: 0.3vh; right: -80vw;
+    width: fit-content;
 }

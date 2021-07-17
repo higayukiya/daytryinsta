@@ -112,12 +112,10 @@
     height: auto;
 }
 
-.unfollow{
-    font-size: 16px;
-}
 
-.follow{
+.btn-outline-secondary{
     font-size: 16px;
-    position: relative; top: 4vh; left: 75vw;
+    position: relative; top: 3.5vh; left: 30vw;
     width: fit-content;
+    background-color: #ffa600;
 }
