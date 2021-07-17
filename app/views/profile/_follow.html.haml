@@ -1,0 +1,4 @@
+/ フォローボタン ----------------------------------------------------------------
+= form_for(current_user, url: relationships_path, method: :post, remote: true) do |f|
+    = hidden_field_tag :following_id, @user.id
+    = f.submit "Follow", class: "btn btn-outline-secondary"

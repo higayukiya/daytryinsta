@@ -15,7 +15,12 @@ Rails.application.routes.draw do
 
   root to: "timelines#index"
 
-  resources :profile, only: [:edit, :update, :show, :destory]
+  resources :profile, only: [:edit, :update, :show, :destory] do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :timelines
 
   namespace :api, defaults: { format: :jason } do
@@ -25,11 +30,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users do
-    member do
-        get :following, :followers
-    end
-  end
   resources :relationships, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

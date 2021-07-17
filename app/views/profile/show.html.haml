@@ -6,12 +6,11 @@
 		-# = image_tag current_user.avatar_img, class: 'avatar' ##, render = edit_profile_path(current_user.id)
 	.profile_top_follow
 		- unless @user === current_user
-			- if current_user.following?(@user)
-				.follow_button.unfollow
-					Unfollow
-			- else
-				.unfollow_button.follow
-					Follow
+			#follow_form
+				- if current_user.following?(@user)
+					= render 'unfollow'
+				- else
+					= render 'follow'
 	#avatar_js
 	= form_with(model:@profile, url: profile_path, method: 'put', local: true, id: 'avatar_form') do |f|
 		= f.label :avatar do
@@ -29,12 +28,12 @@
 			.profile-content
 				Post
 		.profile-number 
-			= link_to followers_user_path(@user.id)do
+			= link_to followers_profile_path(@user.id)do
 				#{@user.followers.count}
 			.profile-content
 				Follower
 		.profile-number
-			= link_to following_user_path(@user.id)do
+			= link_to following_profile_path(@user.id)do
 				#{@user.following.count}
 			.profile-content
 				Following
