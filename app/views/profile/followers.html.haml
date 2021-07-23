@@ -1,0 +1,14 @@
+.container
+    .yajirusi
+        = link_to (image_tag 'yajirusi_left.png'), 'javascript:history.back()'
+    .user_name
+        %h2 Followers
+    .follow_index
+        - @users.each do |users|
+            .comments_area
+                .comments_avatar
+                    = image_tag users.avatar_img
+                .comments_username.name
+                    = users.username
+                .user_sessiontime
+                    %p= time_ago_in_words(users.current_sign_in_at) + ' ago '

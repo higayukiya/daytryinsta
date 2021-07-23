@@ -2,10 +2,8 @@ class TimelinesController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @timelines = Timeline.all
-        # @user = @timelines.user_id
-        # @timeline = current_user.timelines.find(params[:id])
-        # @follwer
+        following_id = current_user.following.pluck(:id)
+        @timelines = Timeline.where(user_id: following_id)
     end
     
     def show
