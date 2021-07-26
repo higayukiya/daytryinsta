@@ -1,6 +1,6 @@
 {
     "name": "blog app",
-    "description": "This is insta",
+    "description": "This is blogapp",
     "keywords": [],
     "website": "",
     "repository": "https://github.com/higayukiya/daytryinsta",
