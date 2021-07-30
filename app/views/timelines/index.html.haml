@@ -8,7 +8,7 @@
             .timeline_card#timeline-show{data: {timeline_id: timelines.id}}
                 .timeline_user
                     - if timelines.user.profile.nil?
-                        =link_to edit_profile_path(timelines.user) do
+                        =link_to profile_path(timelines.user) do
                             = image_tag timelines.user.avatar_img, class: 'index_avatar'
                     - else
                         = link_to profile_path(timelines.user) do
