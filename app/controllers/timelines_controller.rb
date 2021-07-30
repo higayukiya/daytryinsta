@@ -4,6 +4,7 @@ class TimelinesController < ApplicationController
     def index
         following_id = current_user.following.pluck(:id)
         @timelines = Timeline.where(user_id: following_id)
+        @timelines_ather= Timeline.all
     end
     
     def show
